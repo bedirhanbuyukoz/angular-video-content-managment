@@ -7,3 +7,7 @@
 <img src="https://user-images.githubusercontent.com/53793285/183910824-dbe52231-63cb-48e9-9fea-91d0a4b83d34.jpg" width="600">
 
 
+
+#### Admin Page
+<img src="https://user-images.githubusercontent.com/53793285/183911319-98593c03-b179-4520-9262-718e46ecac86.jpg" width="600">
+
