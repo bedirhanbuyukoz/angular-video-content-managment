@@ -1,0 +1,59 @@
+<div class="container">
+    <div class="pt-5">
+
+        <div class="alert alert-danger" *ngIf = "errorMessage">
+            {{errorMessage}}
+        </div>
+        
+      <div class="card">
+        <div class="card-header">
+           <div class="row">
+
+            <div class="col-6">
+                <h3>All Videos</h3>
+            </div>
+            <div class="col-6 text-end">
+                <button class="btn btn-primary" (click)="createVideoRequest()" >Create Video</button></div>
+           </div>
+        </div>
+        <div class="card-body">
+            <table class="table table-striped"></table>
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    
+                    <th scope="col">Title</th>
+                    
+                    <th scope="col">Licences</th>
+
+                    <th scope="col">Price</th>
+                    
+                    <th scope="col">Date</th>
+                    
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of videoList; index as ind">
+                    <th scope="row">{{ind + 1 }}</th>
+                    <br>
+                    <td>{{item.title}}</td> 
+                    <td>{{item.author}}</td>
+
+                    <td>{{item.licences}}</td>
+                    <td>{{item.price| currency: 'TRY'}}</td>
+                    <br>
+                    <td>{{item.createTime | date: 'medium'}}</td>
+                    <br>
+                    <td>
+                       <button class="btn btn-primary me-1" (click)="editVideoRequest(item)" >Edit</button> 
+                       <button class="btn btn-danger" (click)="deleteVideo(item,ind)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </div>
+      </div>
+    </div>
+</div>
+
+<app-video [video]= "selectedVideo" (save)= "saveVideoWatcher($event)" ></app-video>

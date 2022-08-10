@@ -1,0 +1,99 @@
+<div class="modal fade" id="videoModal" tabIndex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form #f="ngForm" (ngSubmit)="f.form.valid && saveVideo()">
+             <div class="modal-header">
+                <h5 class="modal-title">Video Details</h5>
+                <button class="btn-close" data-bs-dismiss="modal"></button>
+             </div>
+             <div class="modal-body">
+
+                <div class="alert alert-danger" *ngIf="errorMessage">
+                   <strong>Error!</strong>{{errorMessage}}
+                </div>
+
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input 
+                    type="text" 
+                    id="title"
+                    name="title"
+                    class="form-control" 
+                    [(ngModel)]="video.title"
+                    #title="ngModel"
+                    required
+                    />
+                    <div class="alert alert-danger" *ngIf="f.submitted && !title.valid">
+                        Video title is required.
+                    </div>
+                </div>
+
+
+                
+                <div class="form-group">
+                    <label for="Author">Author</label>
+                    <input 
+                    type="text" 
+                    id="author"
+                    name="author"
+                    class="form-control" 
+                    [(ngModel)]="video.author"
+                    #author="ngModel"
+                    required
+                    />
+                    <div class="alert alert-danger" *ngIf="f.submitted && !author.valid">
+                        Video Licences is required.
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="price">Price</label>
+                    <input 
+                    type="number" 
+                    id="price"
+                    name="price"
+                    class="form-control" 
+                    [(ngModel)]="video.price"
+                    #price="ngModel"
+                    required
+                    />
+                    <div class="alert alert-danger" *ngIf="f.submitted && (!price.valid || video.price <= 0)">
+                        Video Price is required and should be greater than 0.
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="licences">licences</label>
+                    <input 
+                    type="text" 
+                    id="licences"
+                    name="licences"
+                    class="form-control" 
+                    [(ngModel)]="video.licences"
+                    #licences="ngModel"
+                    required
+                    />
+                    <div class="alert alert-danger" *ngIf="f.submitted && !licences.valid">
+                        Video Price is required and should be greater than 0.
+                    </div>
+                </div>
+               
+               
+                
+                
+               
+
+
+        
+
+
+             </div> 
+             <div class="modal-footer">
+                <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button class="btn btn-primary" type="submit">Save Changes</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
